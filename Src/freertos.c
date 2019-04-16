@@ -136,6 +136,7 @@ void StartDefaultTask(void const * argument)
 	    Jump_To_Application = (pFunction) JumpAddress;
 	    //初始化用户程序的堆栈指针
 	    __set_MSP(*(__IO uint32_t*) Address);
+	    NVIC_SetVector(FLASH_IRQn,0x08005000);
 	    Jump_To_Application();
 	   }
 
